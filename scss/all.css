@@ -1,0 +1,749 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 16px;
+  font-family: Microsoft JhengHei, sans-serif;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*清除浮動*/
+/*圖片取代文字*/
+/*傳入一組字體顏色使其hover時變暗10%*/
+.ribbon {
+  position: absolute;
+  z-index: 100;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.ribbon.top-right {
+  top: -6px;
+  right: -6px;
+}
+
+.ribbon.top-right.ribbon-default > small {
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 8px 16px 8px 16px;
+  text-align: center;
+  text-shadow: 0 2px 0 #cecece;
+  color: #000;
+  background-color: #f4f4f4;
+  /*建立小陰影 基礎值*/
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-box-shadow: 0 3px 6px -3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 3px 6px -3px rgba(0, 0, 0, 0.5);
+  top: 17px;
+  left: 28px;
+  /*補上小陰影設定值*/
+}
+
+.ribbon.top-right.ribbon-default > small:before, .ribbon.top-right.ribbon-default > small:after {
+  content: "";
+  position: absolute;
+}
+
+.ribbon.top-right.ribbon-default > small:before {
+  bottom: -6px;
+  left: 0px;
+  border-top: 3px solid #c1c1c1;
+  border-left: 3px solid #c1c1c1;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.ribbon.top-right.ribbon-default > small:after {
+  bottom: -6px;
+  right: 0px;
+  border-top: 3px solid #c1c1c1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #c1c1c1;
+  border-bottom: 3px solid transparent;
+}
+
+.ribbon.top-right.ribbon-hexgreen > small {
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 8px 16px 8px 16px;
+  text-align: center;
+  text-shadow: 0 2px 0 #008060;
+  color: #fff;
+  background-color: #00CC99;
+  /*建立小陰影 基礎值*/
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-box-shadow: 0 3px 6px -3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 3px 6px -3px rgba(0, 0, 0, 0.5);
+  top: 17px;
+  left: 28px;
+  /*補上小陰影設定值*/
+}
+
+.ribbon.top-right.ribbon-hexgreen > small:before, .ribbon.top-right.ribbon-hexgreen > small:after {
+  content: "";
+  position: absolute;
+}
+
+.ribbon.top-right.ribbon-hexgreen > small:before {
+  bottom: -6px;
+  left: 0px;
+  border-top: 3px solid #00664d;
+  border-left: 3px solid #00664d;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.ribbon.top-right.ribbon-hexgreen > small:after {
+  bottom: -6px;
+  right: 0px;
+  border-top: 3px solid #00664d;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #00664d;
+  border-bottom: 3px solid transparent;
+}
+
+.ribbon.top-right.ribbon-dangerred > small {
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 8px 16px 8px 16px;
+  text-align: center;
+  text-shadow: 0 2px 0 #b8202e;
+  color: #fff;
+  background-color: #df4554;
+  /*建立小陰影 基礎值*/
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-box-shadow: 0 3px 6px -3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 3px 6px -3px rgba(0, 0, 0, 0.5);
+  top: 17px;
+  left: 28px;
+  /*補上小陰影設定值*/
+}
+
+.ribbon.top-right.ribbon-dangerred > small:before, .ribbon.top-right.ribbon-dangerred > small:after {
+  content: "";
+  position: absolute;
+}
+
+.ribbon.top-right.ribbon-dangerred > small:before {
+  bottom: -6px;
+  left: 0px;
+  border-top: 3px solid #a21c29;
+  border-left: 3px solid #a21c29;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.ribbon.top-right.ribbon-dangerred > small:after {
+  bottom: -6px;
+  right: 0px;
+  border-top: 3px solid #a21c29;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #a21c29;
+  border-bottom: 3px solid transparent;
+}
+
+.warp {
+  max-width: 1024px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.header {
+  height: 300px;
+  background: #424242;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 576px) {
+  .header {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+.header .logo {
+  width: 117px;
+  height: 117px;
+  background: #FFD366;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+  border-radius: 15px;
+  background-image: url(https://hexschool.github.io/JavaScript_HomeWork/assets/BMICLogo.png);
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 576px) {
+  .header .logo {
+    display: none;
+  }
+}
+
+.header .userInput {
+  padding-left: 97px;
+  padding-right: 53px;
+  color: #FFD366;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .header .userInput {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .header .userInput {
+    margin-left: 50px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header .userInput {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header .userInput {
+    margin-left: 0px;
+  }
+}
+
+.header .userInput .controlLabel {
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.header .userInput .textbox {
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid #FFD366;
+  border-radius: 10px;
+  font-size: 24px;
+  padding-left: 14px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 23px;
+  color: #FFFFFF;
+  outline: none;
+  width: 250px;
+  height: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .header .userInput .textbox {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header .userInput .textbox {
+    width: 150px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header .userInput .textbox {
+    width: 120px;
+    font-size: 16px;
+  }
+}
+
+.header .resultBtn {
+  display: block;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  background: #FFD366;
+  text-align: center;
+  font-size: 24px;
+  color: #424242;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 320px) {
+  .header .resultBtn {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+}
+
+.header .resultBtn:hover {
+  -webkit-box-shadow: 0 1px 6px 3px rgba(255, 196, 50, 0.64);
+          box-shadow: 0 1px 6px 3px rgba(255, 196, 50, 0.64);
+}
+
+.header .resultBtn:active {
+  background: #DEA821;
+}
+
+.header .resultBtn.active {
+  opacity: 0;
+  z-index: -1;
+}
+
+.result {
+  position: relative;
+}
+
+.result .state {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 123px;
+  height: 123px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 41px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  opacity: 0;
+  z-index: -1;
+}
+
+@media screen and (max-width: 320px) {
+  .result .state {
+    width: 100px;
+    height: 100px;
+    padding-top: 30px;
+  }
+}
+
+.result .state .value {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 320px) {
+  .result .state .value {
+    font-size: 28px;
+  }
+}
+
+.result .state span {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 320px) {
+  .result .state span {
+    font-size: 12px;
+  }
+}
+
+.result .state .resultInfo {
+  font-size: 16px;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 320px) {
+  .result .state .resultInfo {
+    font-size: 12px;
+    top: 15px;
+  }
+}
+
+.result .state .recalc {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  border: 3px solid #424242;
+  text-align: center;
+  line-height: 24px;
+  color: #424242;
+  text-decoration: none;
+}
+
+.result .state .recalc:hover {
+  -webkit-animation-name: rotate;
+          animation-name: rotate;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.result .state.show {
+  z-index: 1;
+  opacity: 1;
+}
+
+.content {
+  position: relative;
+  padding: 48px 200px 74px 200px;
+  background: #f5f5f5;
+  min-height: calc(100vh - (300px + 90px));
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 48px 50px 74px 50px;
+  }
+}
+
+.content .title {
+  font-size: 24px;
+  color: #424242;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.recordblock {
+  position: relative;
+  background: #FFFFFF;
+  padding: 21px 11px 21px 19px;
+  margin-top: 16px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.recordblock .record {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .recordblock .record {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.recordblock .record li {
+  font-size: 20px;
+  color: #4A4A4A;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 320px) {
+  .recordblock .record li {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.recordblock .record li span {
+  font-size: 12px;
+  margin-right: 7px;
+}
+
+.recordblock .record li:first-child {
+  margin-right: auto;
+}
+
+@media screen and (max-width: 576px) {
+  .recordblock .record li:first-child {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .recordblock .record li:first-child {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+.recordblock .record li:last-child {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 576px) {
+  .recordblock .record li:last-child {
+    width: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin-top: 15px;
+  }
+}
+
+.recordblock .record li:last-child span {
+  margin-right: 0px;
+}
+
+.recordblock .record li:nth-child(3) {
+  margin-right: 42px;
+  margin-left: 42px;
+}
+
+@media screen and (max-width: 768px) {
+  .recordblock .record li:nth-child(3) {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .recordblock .record li:nth-child(3) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.recordblock:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+#pagerSelect {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 20px;
+}
+
+.colorBlock {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 7px;
+  -webkit-box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29);
+          box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29);
+}
+
+.colorBlock.good {
+  background: #86D73F;
+}
+
+.colorBlock.tooThin {
+  background: #31BAF9;
+}
+
+.colorBlock.littleHeavy {
+  background: #FF982D;
+}
+
+.colorBlock.heavy {
+  background: #FF6C03;
+}
+
+.colorBlock.veryfat {
+  background: #FF1200;
+}
+
+.BMI.goodcircle {
+  color: #86D73F;
+  border: 6px solid #86D73F;
+}
+
+.BMI.tooThincircle {
+  color: #31BAF9;
+  border: 6px solid #31BAF9;
+}
+
+.BMI.littleHeavycircle {
+  color: #FF982D;
+  border: 6px solid #FF982D;
+}
+
+.BMI.heavycircle {
+  color: #FF6C03;
+  border: 6px solid #FF6C03;
+}
+
+.BMI.veryfatcircle {
+  color: #FF1200;
+  border: 6px solid #FF1200;
+}
+
+.BMI.goodtext {
+  color: #86D73F;
+}
+
+.BMI.tooThintext {
+  color: #31BAF9;
+}
+
+.BMI.littleHeavytext {
+  color: #FF982D;
+}
+
+.BMI.heavytext {
+  color: #FF6C03;
+}
+
+.BMI.veryfattext {
+  color: #FF1200;
+}
+
+.BMI.goodbg {
+  background: #86D73F;
+}
+
+.BMI.tooThinbg {
+  background: #31BAF9;
+}
+
+.BMI.littlebg {
+  background: #FF982D;
+}
+
+.BMI.heavybg {
+  background: #FF6C03;
+}
+
+.BMI.veryfatbg {
+  background: #FF1200;
+}
+
+.footer {
+  background: #FFD366;
+  padding-top: 18px;
+  padding-bottom: 17px;
+}
+
+.footer .footerlogo {
+  margin: 0 auto;
+  width: 55px;
+  height: 55px;
+  background-size: contain;
+  background-position: center center;
+  background-image: url(https://hexschool.github.io/JavaScript_HomeWork/assets/BMICLogo.png);
+}
+/*# sourceMappingURL=all.css.map */

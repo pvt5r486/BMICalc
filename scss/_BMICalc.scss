@@ -1,0 +1,378 @@
+.warp{
+    max-width: 1024px;
+    margin: 0 auto;
+    overflow: hidden;
+   
+}
+
+.header{
+   height: 300px;
+   background: #424242;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   @include tablet576{
+        justify-content: flex-start;
+   }
+   .logo{
+        width: 117px;
+        height: 117px;
+        background: #FFD366;
+        background-size: cover;
+        background-position: center center;
+        overflow: hidden;
+        border-radius: 15px;
+        background-image: url(https://hexschool.github.io/JavaScript_HomeWork/assets/BMICLogo.png);   
+        @include hidden_text;
+        @include tablet576{
+            display: none;
+        }
+   }
+   .userInput{
+        padding-left: 97px;
+        padding-right: 53px;
+        color: #FFD366;
+        display: flex;
+        flex-direction:column;
+        @include tablet768{
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        @include tablet576{
+            margin-left: 50px;
+        }
+        @include mobile480{
+            margin-left: 10px;
+        }
+        @include mobile320{
+            margin-left: 0px;
+        }
+
+        .controlLabel{
+            font-size: 18px;
+            margin-bottom: 7px;
+        }
+        .textbox{
+            background: rgba(255,255,255,0.18);
+            border: 2px solid #FFD366;
+            border-radius: 10px;
+            font-size: 24px;
+            padding-left: 14px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-bottom: 23px;
+            color: #FFFFFF;
+            outline: none;
+            width: 250px;
+            height: 40px;
+            @include tablet768{
+               width: 200px;
+            }
+            @include mobile480{
+                width: 150px;
+                font-size: 18px;
+            }
+            @include mobile320{
+                width: 120px;
+                font-size: 16px;
+            }
+        }
+
+   }
+   .resultBtn{
+    display: block;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    background: #FFD366;
+    text-align: center;
+    font-size: 24px;
+    color: #424242;
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: all .3s;
+    position: relative;
+    z-index: 1;
+    @include mobile320{
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+    }
+    &:hover{
+        box-shadow: 0 1px 6px 3px rgba(255,196,50,0.64);
+
+    }
+    &:active{
+        background: #DEA821;
+    }
+    &.active{
+        opacity: 0;
+        z-index: -1;   
+    }
+   }  
+}
+
+.result{
+    position: relative;
+    .state{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 123px;
+        height: 123px;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 41px;
+        transition: all .3s;
+        opacity: 0;
+        z-index: -1;   
+        @include mobile320{
+            width: 100px;
+            height: 100px;
+            padding-top: 30px;
+        }
+        .value{
+            font-size: 32px;
+            @include mobile320{
+                font-size: 28px;
+            }
+        }
+        span{
+            font-size: 14px;
+            @include mobile320{
+                font-size: 12px;
+            }
+        }
+        .resultInfo{
+            font-size: 16px;
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            @include mobile320{
+                font-size: 12px;
+                top: 15px;
+            }
+        }
+        .recalc{
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            right: 0;
+            bottom: -1px;
+            border: 3px solid #424242;
+            text-align: center;
+            line-height: 24px;
+            color: #424242;
+            text-decoration: none;
+            &:hover{
+                animation-name: rotate;
+                animation-duration:2s;
+                animation-iteration-count:infinite;
+                animation-timing-function:linear;
+                @keyframes rotate{
+                    0%{
+                        transform: rotate(0deg);
+                    }
+                    100%{
+                        transform: rotate(360deg)
+                    }
+                }
+            }
+        }
+        &.show{
+            z-index: 1;
+            opacity: 1;
+        }
+    }
+  
+}
+
+.content{
+    position: relative;
+    padding: 48px 200px 74px 200px;
+    background: #f5f5f5;
+    min-height: calc(100vh - (300px + 90px));
+    @include tablet768{
+        padding: 48px 50px 74px 50px;
+    }
+    .title{
+        font-size: 24px;
+        color: #424242;
+        text-align: center;
+        margin-bottom: 36px;
+    }
+}
+
+.recordblock{
+    position: relative;
+    background: #FFFFFF;
+    padding:21px 11px 21px 19px;
+    margin-top: 16px;
+    transition: all .3s;
+    .record{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        @include tablet768{
+            justify-content: space-between;
+        }
+        li{
+            font-size: 20px;
+            color: #4A4A4A;
+            display: flex;
+            align-items: center;
+            @include mobile320{
+                width: 100%;
+                justify-content: center;
+            }
+            span{
+                font-size: 12px;
+                margin-right: 7px;
+            }
+        }
+        li:first-child{
+            margin-right: auto;
+            @include tablet576{
+               width: 100%;
+               margin-bottom: 15px;
+            }
+            @include mobile320{
+                justify-content:flex-start;
+            }
+        }
+        li:last-child{
+            margin-left: auto;
+            @include tablet576{
+                width: 100%;
+                justify-content: flex-end;
+                margin-top: 15px;
+            }
+            span{
+                margin-right: 0px;
+            }
+        }
+        li:nth-child(3){
+            margin-right: 42px;
+            margin-left: 42px;
+            @include tablet768{
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+            @include mobile320{
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &:hover{
+        transform: translateY(-5px);
+    }
+}
+
+#pagerSelect{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+
+
+
+
+.colorBlock{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 7px;
+    box-shadow: 2px 0 3px 0 rgba(134,215,63,0.29);
+    &.good{
+        background: #86D73F;
+    }
+    &.tooThin{
+        background: #31BAF9;
+    }
+    &.littleHeavy{
+        background: #FF982D;
+    }
+    &.heavy{
+        background: #FF6C03;
+    }
+    &.veryfat{
+        background: #FF1200 ;
+    }
+}
+
+.BMI{
+    &.goodcircle{
+        color: #86D73F;
+        border: 6px solid #86D73F;
+    }
+    &.tooThincircle{
+        color: #31BAF9;
+        border: 6px solid #31BAF9;
+    }
+    &.littleHeavycircle{
+        color: #FF982D;
+        border: 6px solid #FF982D;
+    }
+    &.heavycircle{
+        color: #FF6C03;
+        border: 6px solid #FF6C03;
+    }
+    &.veryfatcircle{
+        color: #FF1200 ;
+        border: 6px solid #FF1200;
+    }
+    &.goodtext{
+        color: #86D73F;
+    }
+    &.tooThintext{
+        color: #31BAF9;
+    }
+    &.littleHeavytext{
+        color: #FF982D;
+    }
+    &.heavytext{
+        color: #FF6C03;
+    }
+    &.veryfattext{
+        color: #FF1200 ;     
+    }
+    &.goodbg{
+        background: #86D73F;
+    }
+    &.tooThinbg{
+        background: #31BAF9;
+    }
+    &.littlebg{
+        background: #FF982D;
+    }
+    &.heavybg{
+        background: #FF6C03;
+    }
+    &.veryfatbg{
+        background: #FF1200 ;
+    }
+}
+
+.footer{
+    background: #FFD366;
+    padding-top: 18px;
+    padding-bottom: 17px;
+    .footerlogo{
+        margin: 0 auto;
+        width: 55px;
+        height: 55px;
+        background-size: contain;
+        background-position: center center;
+        background-image: url(https://hexschool.github.io/JavaScript_HomeWork/assets/BMICLogo.png);       
+    }
+}
+

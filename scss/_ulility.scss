@@ -1,0 +1,126 @@
+/*清除浮動*/
+@mixin clearfix{
+    content:'';
+    display:table;
+    clear:both;
+}
+
+/*圖片取代文字*/
+@mixin hidden_text{
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+/*傳入一組字體顏色使其hover時變暗10%*/
+@mixin color-hover-feedback($color) {
+    transition: all 0.3s;  
+    color: $color;
+    text-decoration: none;
+    &:hover{
+        color: darken($color,10%);
+    }
+}
+
+@mixin btn($color,$bgcolor,$border-radius,$width,$height){
+    width: $width;
+    height:$height;
+    display: block;
+    border-radius: $border-radius;
+    cursor: pointer;
+    outline: none;
+    background:$bgcolor;   
+    color: $color;
+    text-decoration: none;
+    text-align: center;
+    line-height: $height;
+    transition: all .3s;
+        &:hover{
+            background: darken($bgcolor,10%);
+        }
+        &:active{
+            background: darken($bgcolor,20%);
+        }
+}
+
+
+
+
+
+//緞帶
+$brand-hexgreen:#00CC99;
+$danger-red:#df4554;
+//字體顏色 . 主題色 . 位置
+@mixin ribbon ($color, $bgcolor, $position) {
+  > small {  
+    position: absolute;
+    display: block;
+    width: 100%;
+    padding: 8px 16px 8px 16px;
+    text-align: center;
+    text-shadow: 0 2px 0 darken($bgcolor, 15%);
+    color: $color;
+    background-color: $bgcolor;
+    
+    /*建立小陰影 基礎值*/
+    &:before,&:after {
+      content: "";
+      position: absolute;    
+    }
+ 
+    //判斷位置,如果是右上緞帶
+    @if ($position == top-right) {
+      transform:rotate(45deg);
+      box-shadow:0 3px 6px -3px rgba(#000, .5);
+      top: 17px;
+      left: 28px;
+      
+      /*補上小陰影設定值*/
+      &:before{ 
+        bottom: -6px;
+        left:0px;
+        border-top: 3px solid darken($bgcolor, 20%);
+        border-left: 3px solid darken($bgcolor, 20%);
+        border-right: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+      }
+      &:after{ 
+        bottom:-6px;
+        right: 0px; 
+        border-top: 3px solid darken($bgcolor, 20%);
+        border-left: 3px solid transparent;
+        border-right: 3px solid darken($bgcolor, 20%);
+        border-bottom: 3px solid transparent;
+        }
+
+    }    
+    //左上左下右下以此類推
+  }
+}
+
+// base
+.ribbon {
+  position: absolute;
+  z-index: 100;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  
+  //決定緞帶顯示位置後,根據樣式決定顏色
+  &.top-right {
+    top: -6px;
+    right: -6px;  
+    &.ribbon-default {
+      @include ribbon(#000, #f4f4f4, top-right);
+    }   
+    &.ribbon-hexgreen {
+      @include ribbon(#fff, $brand-hexgreen, top-right);
+    }
+    &.ribbon-dangerred {
+      @include ribbon(#fff, $danger-red, top-right);
+    }
+  } 
+  //左上左下右下以此類推
+}
+
